@@ -14,7 +14,7 @@ export function PdfButton() {
 }
 
 const PdfBtn = styled.button`
-  position: absolute;
+  position: fixed;
   cursor: pointer;
   padding: 0.75rem;
   display: flex;
