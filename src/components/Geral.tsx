@@ -25,5 +25,6 @@ const Container = styled.main`
         padding-top: 1rem;
         text-align: center;
         color: var(--blue-400);
+        margin-bottom: 1.5rem;
     }
     `

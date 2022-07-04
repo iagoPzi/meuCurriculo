@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { Default } from "./displayOptions/Default";
 import { Eu } from "./displayOptions/Eu";
@@ -8,16 +8,11 @@ import { Sobre } from "./displayOptions/Sobre";
 
 export function Content() {
   const [pager, setPager] = useState("eu");
-  const OptionsRef = useRef(document.createElement("div"));
-  const [widthRef, setWidthRef] = useState(0);
-
-  useEffect(() => {
-    setWidthRef(OptionsRef.current.offsetWidth);
-  }, [widthRef]);
+ 
 
   return (
     <Container>
-      <Options ref={OptionsRef}>
+      <Options>
         <Title isActive={pager === "eu"} onClick={() => setPager("eu")}>
           Sobre mim
         </Title>
@@ -31,7 +26,7 @@ export function Content() {
           Sobre o Projeto
         </Title>
       </Options>
-      <Display refWidth={widthRef}>
+      <Display>
         {pager === "eu" ? (
           <Eu />
         ) : (
@@ -61,17 +56,27 @@ const Container = styled.div`
   color: var(--blue-400);
 `;
 
-interface DisplayProps {
-  refWidth: number;
-}
 
-const Display = styled.div<DisplayProps>`
+const Display = styled.div`
   margin-top: 1rem;
-  width: ${(props) => props.refWidth}px;
+  width: 696px;
   background: #fff;
   border-radius: 0 0 10px 10px;
   overflow-y: auto;
   max-height: 360px;
+
+  h3 {
+    color: #000;
+  }
+  @media (max-width: 1080px) {
+    width: 527px;
+  }
+  @media (max-width: 720px) {
+    width: 499px;
+  }
+  @media (max-width: 648px) {
+    width: 90%;
+  }
   
   ::-webkit-scrollbar {
   width: 5px;
@@ -87,12 +92,6 @@ const Display = styled.div<DisplayProps>`
   background: #555; 
 
 }
-  h3 {
-    color: #000;
-  }
-  @media (max-width: 648px) {
-    width: 90%;
-  }
 
   
 `;

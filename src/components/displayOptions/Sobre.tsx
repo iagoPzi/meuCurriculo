@@ -8,7 +8,7 @@ export function Sobre() {
         de mim.
         <br/>Caso queira tem a versão em PDF clicando no botão no canto
         inferior direito. 
-        <br/>Foi desenvolvido em ReactJS e Styled Components.
+        <br/>O projeto foi desenvolvido em ReactJS com Styled Components.
       </p>
     </Container>
   );
