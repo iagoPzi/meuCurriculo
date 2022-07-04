@@ -30,7 +30,7 @@ export function Eu() {
 }
 
 const Container = styled.div`
-  padding: 1rem 6rem;
+  padding: 1rem 7%;
   text-align: center;
   display: flex;
   flex-direction: column;

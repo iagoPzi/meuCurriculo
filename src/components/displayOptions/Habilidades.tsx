@@ -15,9 +15,9 @@ export function Hab(){
 }
 
 const Container = styled.div`
-    padding: 5px 20px;
+    padding: 1rem 7%;
     text-align: center;
-    color: var(--blue-800);
+    color: var(--blue-400);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,8 +41,8 @@ const Container = styled.div`
             border-radius: 0 5px 5px 0;
             :hover{
                 list-style: outside;
-                color: var(--blue-400);
-                background: var(--blue-800);
+                color: var(--blue-800);
+                background: var(--blue-400);
             }
         }
     }

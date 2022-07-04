@@ -5,7 +5,7 @@ export function PdfButton() {
   return (
     <>
       <PdfBtn>
-        <a href="https://drive.google.com/file/d/1vgkfLkm3I3Uq5oF1W9l3bIszaNXX9qYf/view?usp=sharing" target="_blank">
+        <a href="https://drive.google.com/file/d/1vgID1bEIFEeTYEya2gAzgq-3j59XfC55/view?usp=sharing" target="_blank">
           <FilePdf className="pdfBtn" />
         </a>
       </PdfBtn>

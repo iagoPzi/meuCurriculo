@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { Default } from "./displayOptions/Default";
 import { Eu } from "./displayOptions/Eu";
 import { Exp } from "./displayOptions/Experiencias";
 import { Hab } from "./displayOptions/Habilidades";
 import { Sobre } from "./displayOptions/Sobre";
 
 export function Content() {
-  const [pager, setPager] = useState("");
+  const [pager, setPager] = useState("eu");
+  const OptionsRef = useRef(document.createElement("div"));
+  const [widthRef, setWidthRef] = useState(0);
+
+  useEffect(() => {
+    setWidthRef(OptionsRef.current.offsetWidth);
+  }, [widthRef]);
+
   return (
     <Container>
-      <Options>
+      <Options ref={OptionsRef}>
         <Title isActive={pager === "eu"} onClick={() => setPager("eu")}>
           Sobre mim
         </Title>
@@ -23,7 +31,7 @@ export function Content() {
           Sobre o Projeto
         </Title>
       </Options>
-      <Display>
+      <Display refWidth={widthRef}>
         {pager === "eu" ? (
           <Eu />
         ) : (
@@ -35,9 +43,7 @@ export function Content() {
                 {pager === "exp" ? (
                   <Exp />
                 ) : (
-                  <>
-                    {pager === "hab" ? <Hab /> : <h3>Selecione uma Opção</h3>}
-                  </>
+                  <>{pager === "hab" ? <Hab /> : <Default />}</>
                 )}
               </>
             )}
@@ -55,15 +61,40 @@ const Container = styled.div`
   color: var(--blue-400);
 `;
 
-const Display = styled.div`
+interface DisplayProps {
+  refWidth: number;
+}
+
+const Display = styled.div<DisplayProps>`
   margin-top: 1rem;
-  width: 80%;
-  height: 800%;
+  width: ${(props) => props.refWidth}px;
   background: #fff;
   border-radius: 0 0 10px 10px;
+  overflow-y: auto;
+  max-height: 360px;
+  
+  ::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+
+}
   h3 {
     color: #000;
   }
+  @media (max-width: 648px) {
+    width: 90%;
+  }
+
+  
 `;
 const Options = styled.div`
   display: flex;
@@ -71,10 +102,9 @@ const Options = styled.div`
   gap: 1rem;
 
   @media (max-width: 648px) {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
-
 `;
 interface TitleProps {
   isActive: boolean;
