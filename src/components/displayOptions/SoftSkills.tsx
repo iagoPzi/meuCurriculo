@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export function Hab(){
+export function SoftSkills(){
     return(
      <Container>
-        <p>Principais tecnologias que uso:</p>
+        <p>Minhas Soft Skills:</p>
          <ul>
-            {Object.entries(Habilidades).map(Habilidades => (
-                <li>{Habilidades[1]}</li>
+            {Object.entries(SoftSkill).map(Skill => (
+                <li>{Skill[1]}</li>
             ))}
          </ul>
      </Container>
@@ -50,14 +50,11 @@ const Container = styled.div`
 `;
 
 
-const Habilidades = {
-    1: 'HTML',
-    2: 'CSS',
-    3: 'SASS',
-    4: 'Javascript',
-    5: 'Typescript',
-    6: 'ReactJS',
-    7: 'Styled Components',
-    8: 'Tailwind CSS',
-    9: 'NextJS',
+const SoftSkill = {
+    1: 'Criatividade',
+    2: 'Adaptabilidade',
+    3: 'Empatia',
+    4: 'Flexibilidade',
+    5: 'Colaboração',
+    6: 'Inteligência emocional'
 }

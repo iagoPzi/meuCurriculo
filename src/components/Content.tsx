@@ -5,10 +5,10 @@ import { Eu } from "./displayOptions/Eu";
 import { Exp } from "./displayOptions/Experiencias";
 import { Hab } from "./displayOptions/Habilidades";
 import { Sobre } from "./displayOptions/Sobre";
+import { SoftSkills } from "./displayOptions/SoftSkills";
 
 export function Content() {
   const [pager, setPager] = useState("eu");
- 
 
   return (
     <Container>
@@ -21,6 +21,9 @@ export function Content() {
         </Title>
         <Title isActive={pager === "exp"} onClick={() => setPager("exp")}>
           Experiências
+        </Title>
+        <Title isActive={pager === "soft"} onClick={() => setPager("soft")}>
+          Soft Skills
         </Title>
         <Title isActive={pager === "sobre"} onClick={() => setPager("sobre")}>
           Sobre o Projeto
@@ -38,7 +41,12 @@ export function Content() {
                 {pager === "exp" ? (
                   <Exp />
                 ) : (
-                  <>{pager === "hab" ? <Hab /> : <Default />}</>
+                  <>{pager === "hab" ? (<Hab />
+                  ) : (
+                    <>
+                    {pager === "soft" ? (<SoftSkills />) : (<Default />)}
+                    </>
+                    )}</>
                 )}
               </>
             )}
@@ -55,7 +63,6 @@ const Container = styled.div`
   align-items: center;
   color: var(--blue-400);
 `;
-
 
 const Display = styled.div`
   margin-top: 1rem;
@@ -77,23 +84,20 @@ const Display = styled.div`
   @media (max-width: 648px) {
     width: 90%;
   }
-  
+
   ::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-
-}
-
-  
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `;
 const Options = styled.div`
   display: flex;
