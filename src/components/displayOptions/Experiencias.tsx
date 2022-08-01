@@ -48,6 +48,11 @@ const Container = styled.section`
         border-radius: 5px;
         color: #fff;
         margin-top: 1rem;
+        cursor: pointer;
+        transition: background .3s;
+        :hover{
+            background: var(--blue-400);
+        }
     }
 `;
 
