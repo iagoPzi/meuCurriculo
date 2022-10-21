@@ -1,4 +1,4 @@
 Olá!
 Esse é o meu currículo em site.
 
-Disponível [aqui!](https://pziago.netlify.app/){:target="_blank"}
+Disponível <a href="https://pziago.netlify.app/" target="_blank">aqui!k</a>
