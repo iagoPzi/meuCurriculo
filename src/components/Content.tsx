@@ -4,7 +4,7 @@ import { Default } from "./displayOptions/Default";
 import { Eu } from "./displayOptions/Eu";
 import { Exp } from "./displayOptions/Experiencias";
 import { Hab } from "./displayOptions/Habilidades";
-import { Sobre } from "./displayOptions/Sobre";
+import { Projetos } from "./displayOptions/Projetos";
 import { SoftSkills } from "./displayOptions/SoftSkills";
 
 export function Content() {
@@ -25,8 +25,8 @@ export function Content() {
         <Title isActive={pager === "soft"} onClick={() => setPager("soft")}>
           Soft Skills
         </Title>
-        <Title isActive={pager === "sobre"} onClick={() => setPager("sobre")}>
-          Sobre o Projeto
+        <Title isActive={pager === "projetos"} onClick={() => setPager("projetos")}>
+          Projetos
         </Title>
       </Options>
       <Display>
@@ -34,8 +34,8 @@ export function Content() {
           <Eu />
         ) : (
           <>
-            {pager === "sobre" ? (
-              <Sobre />
+            {pager === "projetos" ? (
+              <Projetos />
             ) : (
               <>
                 {pager === "exp" ? (

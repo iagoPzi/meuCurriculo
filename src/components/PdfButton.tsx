@@ -4,7 +4,7 @@ import styled from "styled-components";
 export function PdfButton() {
   return (
     <>
-      <PdfBtn>
+      <PdfBtn className="bg-white">
         <a href="https://drive.google.com/file/d/1jkV_c2DG5ws5FRwUo1b_m5jj6IzLpHSl/view?usp=sharing" target="_blank">
           <FilePdf className="pdfBtn" />
         </a>
