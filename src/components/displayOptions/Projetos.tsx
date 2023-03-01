@@ -1,11 +1,17 @@
-import styled from "styled-components";
 import { ProjectItem } from "../ProjectItem";
 import iagonotes from "../../images/iagonotes.png";
 import toggleBtn from "../../images/toggledianoite.png";
+import moneyManager from "../../images/moneyManager.png";
 
 export function Projetos() {
   return (
     <div className="flex flex-col gap-5 p-5">
+      <ProjectItem
+        link="https://money-manager-zeta.vercel.app/"
+        image={moneyManager}
+        description="App de gerenciamento de gastos, desenvolvido em react com tailwindCss. Adicione suas transações para ter um melhor controle dos teus gastos. As transações adicionadas são salvas no LocalStorage."
+      />
+
       <ProjectItem
         link="https://iagonotes.netlify.app/"
         image={iagonotes}
